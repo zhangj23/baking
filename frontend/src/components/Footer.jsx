@@ -16,12 +16,12 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-vermillion-600 rounded-full flex items-center justify-center border border-gold-400">
-                <span className="text-rice-50 font-serif font-bold">梦</span>
+                <span className="text-rice-50 font-serif font-bold">美</span>
               </div>
-              <span className="font-serif text-2xl font-semibold text-rice-50">ML Baking</span>
+              <span className="font-serif text-2xl font-semibold text-rice-50">MLJJ Cooking</span>
             </Link>
             <p className="text-rice-300 max-w-md mb-6 leading-relaxed">
-              Where Eastern tradition meets artisan craftsmanship. Every loaf is a journey 
+              Where Eastern tradition meets artisan craftsmanship. Every dish is a journey 
               through time-honored techniques and carefully selected ingredients.
             </p>
             <div className="flex gap-4">

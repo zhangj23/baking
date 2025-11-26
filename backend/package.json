@@ -1,7 +1,7 @@
 {
-  "name": "ml-baking-backend",
+  "name": "mljj-cooking-backend",
   "version": "1.0.0",
-  "description": "ML Baking E-Commerce Backend API",
+  "description": "MLJJ Cooking E-Commerce Backend API",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",

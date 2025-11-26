@@ -46,12 +46,12 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <span className="text-gold-500 font-serif tracking-wider">我们的故事</span>
-              <h1 className="section-title mt-2">About ML Baking</h1>
-              <p className="text-xl text-ink-600 leading-relaxed">
-                Where Eastern tradition meets Western craftsmanship. A bakery born from 
-                passion, heritage, and the timeless art of bread making.
-              </p>
+<span className="text-gold-500 font-serif tracking-wider">我们的故事</span>
+            <h1 className="section-title mt-2">About MLJJ Cooking</h1>
+            <p className="text-xl text-ink-600 leading-relaxed">
+              Where Eastern tradition meets Western craftsmanship. A kitchen born from 
+              passion, heritage, and the timeless art of cooking.
+            </p>
             </motion.div>
 
             <motion.div
@@ -93,23 +93,23 @@ export default function About() {
               
               <div className="space-y-6 text-ink-600 leading-relaxed text-lg">
                 <p>
-                  ML Baking began in 2020, born from countless hours spent in my grandmother's 
+                  MLJJ Cooking began in 2020, born from countless hours spent in my grandmother's 
                   kitchen in Taiwan, watching her transform simple ingredients into extraordinary 
-                  bread. Those memories – the warmth of the oven, the smell of rising dough, the 
+                  dishes. Those memories – the warmth of the kitchen, the aromas of home cooking, the 
                   joy of sharing food with family – inspired me to start this journey.
                 </p>
 
                 <p>
-                  I started with a single sourdough starter, carefully nurtured and now over 
-                  three years old. Each loaf carries a piece of that original culture, connecting 
+                  We started with traditional family recipes, carefully preserved and now shared 
+                  with our community. Each dish carries a piece of that original heritage, connecting 
                   every customer to the tradition that started it all.
                 </p>
 
                 <p>
-                  Today, ML Baking specializes in Asian-inspired artisan breads and unique creations 
-                  like our signature Square Toasts – a fusion of Japanese shokupan technique with 
-                  creative flavor profiles. From premium Japanese Matcha to Filipino Ube to classic 
-                  Black Sesame, each loaf is a celebration of both Eastern tradition and innovation.
+                  Today, MLJJ Cooking specializes in Asian-inspired artisan dishes and unique creations 
+                  that blend traditional techniques with modern flavors. From premium Japanese Matcha 
+                  to Filipino Ube to classic favorites, each dish is a celebration of both Eastern 
+                  tradition and innovation.
                 </p>
 
                 <p className="border-l-4 border-vermillion-600 pl-6 italic text-ink-700">

@@ -50,5 +50,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`🥐 ML Baking API running on port ${PORT}`);
+  console.log(`🍜 MLJJ Cooking API running on port ${PORT}`);
 });

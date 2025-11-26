@@ -35,15 +35,15 @@ export default function Navbar({ onCartClick }) {
             >
               {/* Decorative circle with Chinese pattern feel */}
               <div className="w-12 h-12 bg-vermillion-600 rounded-full flex items-center justify-center border-2 border-gold-400">
-                <span className="text-xl text-rice-50 font-serif font-bold">梦</span>
+                <span className="text-xl text-rice-50 font-serif font-bold">美</span>
               </div>
             </motion.div>
             <div>
               <h1 className="font-serif text-2xl text-ink-800 font-semibold tracking-wide">
-                ML Baking
+                MLJJ Cooking
               </h1>
               <p className="text-xs text-vermillion-600 tracking-[0.2em] uppercase">
-                Asian Artisan Bakery
+                Asian Artisan Kitchen
               </p>
             </div>
           </Link>

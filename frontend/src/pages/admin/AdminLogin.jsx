@@ -55,9 +55,9 @@ export default function AdminLogin() {
             transition={{ delay: 0.2, type: 'spring' }}
             className="w-16 h-16 bg-vermillion-600 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-gold-400"
           >
-            <span className="text-2xl text-rice-50 font-serif font-bold">梦</span>
+            <span className="text-2xl text-rice-50 font-serif font-bold">美</span>
           </motion.div>
-          <h1 className="font-serif text-2xl font-semibold text-rice-50">ML Baking</h1>
+          <h1 className="font-serif text-2xl font-semibold text-rice-50">MLJJ Cooking</h1>
           <p className="text-gold-400 text-sm tracking-wider">Admin Portal • 管理入口</p>
         </div>
 

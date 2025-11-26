@@ -36,9 +36,9 @@ export default function AdminLayout() {
       <header className="lg:hidden bg-ink-800 text-rice-50 p-4 flex items-center justify-between">
         <Link to="/admin" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-vermillion-600 rounded-full flex items-center justify-center border border-gold-400">
-            <span className="text-rice-50 font-serif font-bold text-sm">梦</span>
+            <span className="text-rice-50 font-serif font-bold text-sm">美</span>
           </div>
-          <span className="font-serif text-xl">ML Baking Admin</span>
+          <span className="font-serif text-xl">MLJJ Cooking Admin</span>
         </Link>
         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-rice-50">
           {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -73,10 +73,10 @@ export default function AdminLayout() {
                 <div className="p-6 border-b border-ink-700 hidden lg:block">
                   <Link to="/admin" className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-vermillion-600 rounded-full flex items-center justify-center border-2 border-gold-400">
-                      <span className="text-rice-50 font-serif font-bold">梦</span>
+                      <span className="text-rice-50 font-serif font-bold">美</span>
                     </div>
                     <div>
-                      <h1 className="font-serif text-xl font-semibold text-rice-50">ML Baking</h1>
+                      <h1 className="font-serif text-xl font-semibold text-rice-50">MLJJ Cooking</h1>
                       <p className="text-xs text-gold-400">Admin Portal • 管理</p>
                     </div>
                   </Link>

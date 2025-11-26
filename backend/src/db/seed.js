@@ -12,10 +12,10 @@ const seed = async () => {
     const hashedPassword = await bcrypt.hash('admin123', 10);
     await client.query(`
       INSERT INTO admin_users (email, password_hash, name)
-      VALUES ('admin@mlbaking.com', $1, 'ML Baking Admin')
+      VALUES ('admin@mljjcooking.com', $1, 'MLJJ Cooking Admin')
       ON CONFLICT (email) DO NOTHING;
     `, [hashedPassword]);
-    console.log('✅ Admin user created (admin@mlbaking.com / admin123)');
+    console.log('✅ Admin user created (admin@mljjcooking.com / admin123)');
 
     // Seed products
     const products = [
@@ -89,12 +89,12 @@ const seed = async () => {
         video_url: 'https://www.youtube.com/embed/2FVfJTGpXnU'
       },
       {
-        title: 'Why I Started ML Baking',
-        content: `<p>Every loaf tells a story. Mine began in my grandmother's kitchen, where the smell of fresh bread was a constant companion.</p>
+        title: 'Why I Started MLJJ Cooking',
+        content: `<p>Every dish tells a story. Mine began in my grandmother's kitchen, where the aromas of home cooking were a constant companion.</p>
 
-<p>ML Baking was born from a simple desire: to share that warmth and comfort with others. Each pastry I create carries a piece of that memory, blended with techniques I've learned from bakers around the world.</p>
+<p>MLJJ Cooking was born from a simple desire: to share that warmth and comfort with others. Each dish I create carries a piece of that memory, blended with techniques I've learned from cooks around the world.</p>
 
-<p>Thank you for being part of this journey. Every order you place supports a dream that started with flour, water, and love.</p>`,
+<p>Thank you for being part of this journey. Every order you place supports a dream that started with simple ingredients and love.</p>`,
         video_url: null
       }
     ];

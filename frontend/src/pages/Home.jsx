@@ -69,7 +69,7 @@ export default function Home() {
               </h1>
               
               <p className="text-xl text-ink-600 mb-8 max-w-lg leading-relaxed">
-                Discover our artisan Asian-inspired breads and pastries, crafted with time-honored 
+                Discover our artisan Asian-inspired dishes, crafted with time-honored 
                 techniques and the finest ingredients. Pre-order for Saturday pickup.
               </p>
 
@@ -149,19 +149,19 @@ export default function Home() {
                 icon: <Clock className="w-8 h-8" />,
                 title: 'Fresh Every Week',
                 chinese: '新鲜',
-                description: 'Baked fresh for Saturday pickup. Pre-order by Wednesday midnight.'
+                description: 'Made fresh for Saturday pickup. Pre-order by Wednesday midnight.'
               },
               {
                 icon: <Star className="w-8 h-8" />,
                 title: 'Premium Ingredients',
                 chinese: '精选',
-                description: 'Imported Japanese matcha, organic butter, and the finest seasonal produce.'
+                description: 'Premium ingredients sourced from around the world for authentic flavors.'
               },
               {
                 icon: <MapPin className="w-8 h-8" />,
                 title: 'Easy Pickup',
                 chinese: '方便',
-                description: 'Convenient Saturday pickup at our bakery. No shipping, just freshness.'
+                description: 'Convenient Saturday pickup at our kitchen. No shipping, just freshness.'
               }
             ].map((feature, index) => (
               <motion.div

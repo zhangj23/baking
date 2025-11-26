@@ -1,6 +1,6 @@
-# 🥐 ML Baking E-Commerce Platform
+# 🍜 MLJJ Cooking E-Commerce Platform
 
-A beautiful, full-stack e-commerce platform for artisan baked goods. Pre-order system with Saturday pickup, built with React, Node.js, PostgreSQL, Stripe, and AWS services.
+A beautiful, full-stack e-commerce platform for artisan Asian-inspired cuisine. Pre-order system with Saturday pickup, built with React, Node.js, PostgreSQL, Stripe, and AWS services.
 
 ![ML Baking](https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&h=400&fit=crop)
 
@@ -159,7 +159,7 @@ Visit:
 
 Default admin login (from seed):
 
-- Email: `admin@mlbaking.com`
+- Email: `admin@mljjcooking.com`
 - Password: `admin123`
 
 ## 🔧 Configuration
@@ -305,4 +305,4 @@ MIT License - feel free to use for your own bakery!
 
 ---
 
-Made with 🥐 and ❤️ for ML Baking
+Made with 🍜 and ❤️ for MLJJ Cooking
