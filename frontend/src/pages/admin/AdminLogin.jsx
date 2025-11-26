@@ -38,29 +38,32 @@ export default function AdminLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-warm flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-oriental flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-oriental-pattern opacity-30" />
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-3xl shadow-warm-lg w-full max-w-md overflow-hidden"
+        className="bg-white shadow-oriental-lg w-full max-w-md overflow-hidden relative border border-rice-200"
       >
         {/* Header */}
-        <div className="bg-walnut-800 text-cream-50 p-8 text-center">
+        <div className="bg-ink-800 text-rice-50 p-8 text-center relative">
+          <div className="h-1 absolute top-0 left-0 right-0 bg-gradient-to-r from-vermillion-600 via-gold-400 to-vermillion-600" />
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: 'spring' }}
-            className="w-16 h-16 bg-dusty-rose-400 rounded-2xl flex items-center justify-center mx-auto mb-4"
+            className="w-16 h-16 bg-vermillion-600 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-gold-400"
           >
-            <span className="text-3xl">🥐</span>
+            <span className="text-2xl text-rice-50 font-serif font-bold">梦</span>
           </motion.div>
-          <h1 className="font-serif text-2xl font-semibold">ML Baking</h1>
-          <p className="text-dusty-rose-200 text-sm">Admin Portal</p>
+          <h1 className="font-serif text-2xl font-semibold text-rice-50">ML Baking</h1>
+          <p className="text-gold-400 text-sm tracking-wider">Admin Portal • 管理入口</p>
         </div>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="p-8">
-          <h2 className="font-serif text-2xl text-walnut-800 mb-6 text-center">
+          <h2 className="font-serif text-2xl text-ink-800 mb-6 text-center">
             Sign In
           </h2>
 
@@ -68,7 +71,7 @@ export default function AdminLogin() {
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm"
+              className="mb-6 p-4 bg-vermillion-50 border border-vermillion-200 text-vermillion-700 text-sm"
             >
               {error}
             </motion.div>
@@ -81,7 +84,7 @@ export default function AdminLogin() {
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-walnut-400" />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-400" />
                 <input
                   type="email"
                   id="email"
@@ -101,7 +104,7 @@ export default function AdminLogin() {
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-walnut-400" />
+                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-400" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   id="password"
@@ -115,7 +118,7 @@ export default function AdminLogin() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-walnut-400 hover:text-walnut-600"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -131,7 +134,7 @@ export default function AdminLogin() {
               whileTap={{ scale: loading ? 1 : 0.98 }}
             >
               {loading ? (
-                <div className="w-6 h-6 border-2 border-cream-50 border-t-transparent rounded-full animate-spin" />
+                <div className="w-6 h-6 border-2 border-rice-50 border-t-transparent rounded-full animate-spin" />
               ) : (
                 'Sign In'
               )}
@@ -141,7 +144,7 @@ export default function AdminLogin() {
 
         {/* Footer */}
         <div className="px-8 pb-8 text-center">
-          <a href="/" className="text-sm text-dusty-rose-600 hover:underline">
+          <a href="/" className="text-sm text-vermillion-600 hover:underline">
             ← Back to Store
           </a>
         </div>
@@ -149,5 +152,3 @@ export default function AdminLogin() {
     </div>
   )
 }
-
-

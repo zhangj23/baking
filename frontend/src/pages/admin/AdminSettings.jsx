@@ -75,8 +75,8 @@ export default function AdminSettings() {
     <div className="p-8 max-w-2xl">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-serif text-walnut-800">Settings</h1>
-        <p className="text-walnut-600">Configure your store settings</p>
+        <h1 className="text-3xl font-serif text-ink-800">Settings</h1>
+        <p className="text-ink-600">Configure your store settings</p>
       </div>
 
       {/* Message */}
@@ -84,10 +84,10 @@ export default function AdminSettings() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`mb-6 p-4 rounded-xl ${
+          className={`mb-6 p-4 ${
             message.type === 'success' 
-              ? 'bg-green-50 border border-green-200 text-green-700' 
-              : 'bg-red-50 border border-red-200 text-red-700'
+              ? 'bg-jade-50 border border-jade-200 text-jade-700' 
+              : 'bg-vermillion-50 border border-vermillion-200 text-vermillion-700'
           }`}
         >
           {message.text}
@@ -98,31 +98,31 @@ export default function AdminSettings() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-2xl p-6 shadow-sm mb-6"
+        className="bg-white rounded-lg p-6 shadow-sm mb-6 border border-rice-200"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
-            <Globe className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 bg-jade-100 rounded-lg flex items-center justify-center">
+            <Globe className="w-5 h-5 text-jade-600" />
           </div>
-          <h2 className="text-xl font-serif text-walnut-800">Site Settings</h2>
+          <h2 className="text-xl font-serif text-ink-800">Site Settings</h2>
         </div>
 
         <div className="space-y-6">
           {/* Blog Visibility Toggle */}
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+          <div className="flex items-center justify-between p-4 bg-rice-50 rounded-lg border border-rice-200">
             <div className="flex items-center gap-4">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                settings.blogVisible ? 'bg-green-100' : 'bg-gray-200'
+              <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                settings.blogVisible ? 'bg-jade-100' : 'bg-rice-200'
               }`}>
                 {settings.blogVisible ? (
-                  <Eye className="w-5 h-5 text-green-600" />
+                  <Eye className="w-5 h-5 text-jade-600" />
                 ) : (
-                  <EyeOff className="w-5 h-5 text-gray-500" />
+                  <EyeOff className="w-5 h-5 text-ink-500" />
                 )}
               </div>
               <div>
-                <p className="font-medium text-walnut-800">Blog Section</p>
-                <p className="text-sm text-walnut-500">
+                <p className="font-medium text-ink-800">Blog Section</p>
+                <p className="text-sm text-ink-500">
                   {settings.blogVisible 
                     ? 'Blog is visible on your website' 
                     : 'Blog is hidden from your website'}
@@ -133,7 +133,7 @@ export default function AdminSettings() {
               onClick={handleBlogToggle}
               disabled={saving}
               className={`relative w-14 h-8 rounded-full transition-colors ${
-                settings.blogVisible ? 'bg-green-500' : 'bg-gray-300'
+                settings.blogVisible ? 'bg-jade-500' : 'bg-rice-300'
               }`}
             >
               <motion.div
@@ -151,13 +151,13 @@ export default function AdminSettings() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="bg-white rounded-2xl p-6 shadow-sm"
+        className="bg-white rounded-lg p-6 shadow-sm border border-rice-200"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
-            <Lock className="w-5 h-5 text-purple-600" />
+          <div className="w-10 h-10 bg-vermillion-100 rounded-lg flex items-center justify-center">
+            <Lock className="w-5 h-5 text-vermillion-600" />
           </div>
-          <h2 className="text-xl font-serif text-walnut-800">Security</h2>
+          <h2 className="text-xl font-serif text-ink-800">Security</h2>
         </div>
 
         <form onSubmit={handlePasswordChange} className="space-y-4">
@@ -203,7 +203,7 @@ export default function AdminSettings() {
             className="btn-primary w-full flex items-center justify-center gap-2"
           >
             {changingPassword ? (
-              <div className="w-5 h-5 border-2 border-cream-50 border-t-transparent rounded-full animate-spin" />
+              <div className="w-5 h-5 border-2 border-rice-50 border-t-transparent rounded-full animate-spin" />
             ) : (
               <>
                 <Save className="w-5 h-5" />
@@ -219,10 +219,10 @@ export default function AdminSettings() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="mt-6 p-4 bg-dusty-rose-50 rounded-xl"
+        className="mt-6 p-4 bg-gold-50 border border-gold-200 rounded-lg"
       >
-        <p className="text-sm text-walnut-600">
-          <strong className="text-walnut-800">Tip:</strong> For advanced settings like 
+        <p className="text-sm text-ink-600">
+          <strong className="text-ink-800">Tip:</strong> For advanced settings like 
           AWS S3 configuration, Stripe keys, and email settings, update your environment 
           variables on your hosting platform.
         </p>
@@ -230,5 +230,3 @@ export default function AdminSettings() {
     </div>
   )
 }
-
-

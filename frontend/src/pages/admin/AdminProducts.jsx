@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, Edit2, Trash2, X, Upload, Eye, EyeOff } from 'lucide-react'
+import { Plus, Edit2, Trash2, X, Eye, EyeOff } from 'lucide-react'
 import { api, formatPrice } from '../../utils/api'
 
 export default function AdminProducts() {
@@ -122,7 +122,7 @@ export default function AdminProducts() {
   if (loading) {
     return (
       <div className="p-8 flex items-center justify-center min-h-screen">
-        <div className="w-12 h-12 border-4 border-dusty-rose-400 border-t-transparent rounded-full animate-spin" />
+        <div className="w-12 h-12 border-4 border-vermillion-600 border-t-transparent rounded-full animate-spin" />
       </div>
     )
   }
@@ -132,8 +132,8 @@ export default function AdminProducts() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-serif text-walnut-800">Products</h1>
-          <p className="text-walnut-600">Manage your bakery products</p>
+          <h1 className="text-3xl font-serif text-ink-800">Products</h1>
+          <p className="text-ink-600">Manage your bakery products</p>
         </div>
         <motion.button
           onClick={() => openModal()}
@@ -148,12 +148,12 @@ export default function AdminProducts() {
 
       {/* Products Grid */}
       {products.length === 0 ? (
-        <div className="bg-white rounded-2xl p-12 text-center">
-          <div className="w-20 h-20 bg-dusty-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="bg-white rounded-lg p-12 text-center border border-rice-200">
+          <div className="w-20 h-20 bg-vermillion-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <span className="text-4xl">🥐</span>
           </div>
-          <h3 className="text-xl font-serif text-walnut-800 mb-2">No products yet</h3>
-          <p className="text-walnut-600 mb-6">Start by adding your first product.</p>
+          <h3 className="text-xl font-serif text-ink-800 mb-2">No products yet</h3>
+          <p className="text-ink-600 mb-6">Start by adding your first product.</p>
           <button onClick={() => openModal()} className="btn-secondary">
             Add Your First Product
           </button>
@@ -166,7 +166,7 @@ export default function AdminProducts() {
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className={`bg-white rounded-2xl overflow-hidden shadow-sm ${
+              className={`bg-white rounded-lg overflow-hidden shadow-sm border border-rice-200 ${
                 !product.is_active ? 'opacity-60' : ''
               }`}
             >
@@ -180,7 +180,7 @@ export default function AdminProducts() {
                   <button
                     onClick={() => toggleActive(product)}
                     className={`p-2 rounded-full ${
-                      product.is_active ? 'bg-green-500' : 'bg-gray-400'
+                      product.is_active ? 'bg-jade-500' : 'bg-ink-400'
                     } text-white`}
                     title={product.is_active ? 'Active' : 'Inactive'}
                   >
@@ -188,16 +188,16 @@ export default function AdminProducts() {
                   </button>
                 </div>
                 {product.category && (
-                  <span className="absolute top-4 left-4 px-3 py-1 bg-dusty-rose-400 text-walnut-800 text-xs font-medium rounded-full">
+                  <span className="absolute top-4 left-4 px-3 py-1 bg-vermillion-600 text-rice-50 text-xs font-medium">
                     {product.category}
                   </span>
                 )}
               </div>
               <div className="p-6">
-                <h3 className="font-serif text-xl text-walnut-800 mb-1">{product.name}</h3>
-                <p className="text-walnut-600 text-sm mb-3 line-clamp-2">{product.description}</p>
+                <h3 className="font-serif text-xl text-ink-800 mb-1">{product.name}</h3>
+                <p className="text-ink-600 text-sm mb-3 line-clamp-2">{product.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-2xl text-dusty-rose-600">
+                  <span className="font-serif text-2xl text-vermillion-600">
                     {formatPrice(product.price)}
                   </span>
                   <div className="flex gap-2">
@@ -237,14 +237,14 @@ export default function AdminProducts() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="bg-white rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto pointer-events-auto"
+                className="bg-white rounded-lg w-full max-w-lg max-h-[85vh] overflow-y-auto pointer-events-auto border border-rice-200"
               >
-              <div className="sticky top-0 bg-white p-6 border-b border-gray-100 flex items-center justify-between">
-                <h2 className="text-xl font-serif text-walnut-800">
+              <div className="sticky top-0 bg-white p-6 border-b border-rice-200 flex items-center justify-between">
+                <h2 className="text-xl font-serif text-ink-800">
                   {editingProduct ? 'Edit Product' : 'Add New Product'}
                 </h2>
-                <button onClick={closeModal} className="p-2 hover:bg-gray-100 rounded-lg">
-                  <X className="w-5 h-5" />
+                <button onClick={closeModal} className="p-2 hover:bg-rice-100 rounded-lg">
+                  <X className="w-5 h-5 text-ink-600" />
                 </button>
               </div>
 
@@ -334,9 +334,9 @@ export default function AdminProducts() {
                     name="is_active"
                     checked={formData.is_active}
                     onChange={handleChange}
-                    className="w-5 h-5 rounded border-dusty-rose-300 text-dusty-rose-500 focus:ring-dusty-rose-500"
+                    className="w-5 h-5 rounded border-rice-300 text-vermillion-600 focus:ring-vermillion-500"
                   />
-                  <label htmlFor="is_active" className="text-walnut-800">
+                  <label htmlFor="is_active" className="text-ink-800">
                     Product is available (visible on store)
                   </label>
                 </div>
