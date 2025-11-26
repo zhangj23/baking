@@ -1,8 +1,14 @@
 const { Pool } = require('pg');
 
+// Enable SSL for RDS connections (detected by amazonaws.com in URL)
+const isRDS = process.env.DATABASE_URL?.includes('amazonaws.com');
+const sslConfig = isRDS || process.env.NODE_ENV === 'production' 
+  ? { rejectUnauthorized: false } 
+  : false;
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  ssl: sslConfig
 });
 
 // Test connection
