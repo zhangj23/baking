@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Edit2, Trash2, X, Eye, EyeOff, Video, Image } from 'lucide-react'
 import { api } from '../../utils/api'
+import ImageUpload from '../../components/admin/ImageUpload'
 
 export default function AdminBlog() {
   const [posts, setPosts] = useState([])
@@ -311,14 +312,10 @@ export default function AdminBlog() {
                 </div>
 
                 <div>
-                  <label className="label">Featured Image URL (optional)</label>
-                  <input
-                    type="url"
-                    name="image_url"
+                  <label className="label">Featured Image (optional)</label>
+                  <ImageUpload
                     value={formData.image_url}
-                    onChange={handleChange}
-                    className="input-field"
-                    placeholder="https://..."
+                    onChange={(url) => setFormData(prev => ({ ...prev, image_url: url }))}
                   />
                 </div>
 
@@ -329,9 +326,9 @@ export default function AdminBlog() {
                     name="is_published"
                     checked={formData.is_published}
                     onChange={handleChange}
-                    className="w-5 h-5 rounded border-dusty-rose-300 text-dusty-rose-500 focus:ring-dusty-rose-500"
+                    className="w-5 h-5 rounded border-rice-300 text-vermillion-600 focus:ring-vermillion-500"
                   />
-                  <label htmlFor="is_published" className="text-walnut-800">
+                  <label htmlFor="is_published" className="text-ink-800">
                     Publish immediately
                   </label>
                 </div>

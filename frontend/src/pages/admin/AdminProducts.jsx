@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus, Edit2, Trash2, X, Eye, EyeOff } from 'lucide-react'
 import { api, formatPrice } from '../../utils/api'
+import ImageUpload from '../../components/admin/ImageUpload'
 
 export default function AdminProducts() {
   const [products, setProducts] = useState([])
@@ -303,28 +304,11 @@ export default function AdminProducts() {
                 </div>
 
                 <div>
-                  <label className="label">Image URL</label>
-                  <input
-                    type="url"
-                    name="image_url"
+                  <label className="label">Product Image</label>
+                  <ImageUpload
                     value={formData.image_url}
-                    onChange={handleChange}
-                    className="input-field"
-                    placeholder="https://..."
+                    onChange={(url) => setFormData(prev => ({ ...prev, image_url: url }))}
                   />
-                  {formData.image_url && (
-                    <div className="mt-2 rounded-lg overflow-hidden h-32">
-                      <img 
-                        src={formData.image_url} 
-                        alt="Preview" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => e.target.style.display = 'none'}
-                      />
-                    </div>
-                  )}
-                  <p className="text-xs text-walnut-500 mt-1">
-                    For production, use the S3 upload feature instead.
-                  </p>
                 </div>
 
                 <div className="flex items-center gap-3">
