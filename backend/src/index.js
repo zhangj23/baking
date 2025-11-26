@@ -10,6 +10,7 @@ const configRoutes = require("./routes/config");
 const authRoutes = require("./routes/auth");
 const uploadRoutes = require("./routes/upload");
 const webhookRoutes = require("./routes/webhook");
+const contentRoutes = require("./routes/content");
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use("/api/blog", blogRoutes);
 app.use("/api/config", configRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/content", contentRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

@@ -1,34 +1,61 @@
-import { useState } from 'react'
-import { Outlet, NavLink, useNavigate, Link } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  LayoutDashboard, 
-  Package, 
-  ShoppingCart, 
-  FileText, 
-  Settings, 
+import { useState } from "react";
+import { Outlet, NavLink, useNavigate, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingCart,
+  FileText,
+  Settings,
   LogOut,
   Menu,
   X,
-  ExternalLink
-} from 'lucide-react'
+  ExternalLink,
+  PenTool,
+} from "lucide-react";
 
 export default function AdminLayout() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const navigate = useNavigate()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('ml-baking-admin-token')
-    navigate('/admin/login')
-  }
+    localStorage.removeItem("ml-baking-admin-token");
+    navigate("/admin/login");
+  };
 
   const navItems = [
-    { to: '/admin', icon: <LayoutDashboard className="w-5 h-5" />, label: 'Dashboard', end: true },
-    { to: '/admin/products', icon: <Package className="w-5 h-5" />, label: 'Products' },
-    { to: '/admin/orders', icon: <ShoppingCart className="w-5 h-5" />, label: 'Orders' },
-    { to: '/admin/blog', icon: <FileText className="w-5 h-5" />, label: 'Blog' },
-    { to: '/admin/settings', icon: <Settings className="w-5 h-5" />, label: 'Settings' },
-  ]
+    {
+      to: "/admin",
+      icon: <LayoutDashboard className="w-5 h-5" />,
+      label: "Dashboard",
+      end: true,
+    },
+    {
+      to: "/admin/products",
+      icon: <Package className="w-5 h-5" />,
+      label: "Products",
+    },
+    {
+      to: "/admin/orders",
+      icon: <ShoppingCart className="w-5 h-5" />,
+      label: "Orders",
+    },
+    {
+      to: "/admin/blog",
+      icon: <FileText className="w-5 h-5" />,
+      label: "Blog",
+    },
+    {
+      to: "/admin/content",
+      icon: <PenTool className="w-5 h-5" />,
+      label: "Page Content",
+    },
+    {
+      to: "/admin/settings",
+      icon: <Settings className="w-5 h-5" />,
+      label: "Settings",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-rice-100">
@@ -36,12 +63,21 @@ export default function AdminLayout() {
       <header className="lg:hidden bg-ink-800 text-rice-50 p-4 flex items-center justify-between">
         <Link to="/admin" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-vermillion-600 rounded-full flex items-center justify-center border border-gold-400">
-            <span className="text-rice-50 font-serif font-bold text-sm">美</span>
+            <span className="text-rice-50 font-serif font-bold text-sm">
+              美
+            </span>
           </div>
           <span className="font-serif text-xl">MLJJ Cooking Admin</span>
         </Link>
-        <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-rice-50">
-          {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        <button
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          className="text-rice-50"
+        >
+          {isSidebarOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </header>
 
@@ -68,16 +104,22 @@ export default function AdminLayout() {
               >
                 {/* Decorative top bar */}
                 <div className="h-1 bg-gradient-to-r from-vermillion-600 via-gold-400 to-vermillion-600" />
-                
+
                 {/* Logo */}
                 <div className="p-6 border-b border-ink-700 hidden lg:block">
                   <Link to="/admin" className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-vermillion-600 rounded-full flex items-center justify-center border-2 border-gold-400">
-                      <span className="text-rice-50 font-serif font-bold">美</span>
+                      <span className="text-rice-50 font-serif font-bold">
+                        美
+                      </span>
                     </div>
                     <div>
-                      <h1 className="font-serif text-xl font-semibold text-rice-50">MLJJ Cooking</h1>
-                      <p className="text-xs text-gold-400">Admin Portal • 管理</p>
+                      <h1 className="font-serif text-xl font-semibold text-rice-50">
+                        MLJJ Cooking
+                      </h1>
+                      <p className="text-xs text-gold-400">
+                        Admin Portal • 管理
+                      </p>
                     </div>
                   </Link>
                 </div>
@@ -93,8 +135,8 @@ export default function AdminLayout() {
                       className={({ isActive }) =>
                         `flex items-center gap-3 px-4 py-3 transition-colors ${
                           isActive
-                            ? 'bg-vermillion-600 text-rice-50 border-l-4 border-gold-400'
-                            : 'text-rice-300 hover:bg-ink-700 hover:text-rice-50 border-l-4 border-transparent'
+                            ? "bg-vermillion-600 text-rice-50 border-l-4 border-gold-400"
+                            : "text-rice-300 hover:bg-ink-700 hover:text-rice-50 border-l-4 border-transparent"
                         }`
                       }
                     >
@@ -134,5 +176,5 @@ export default function AdminLayout() {
         </main>
       </div>
     </div>
-  )
+  );
 }
