@@ -110,7 +110,7 @@ const migrate = async () => {
     // Insert custom colors config
     await client.query(`
       INSERT INTO site_config (key, value) 
-      VALUES ('CUSTOM_COLORS', '{"primary": "#C41E3A", "secondary": "#D4AF37", "accent": "#2D2D2D"}')
+      VALUES ('CUSTOM_COLORS', '{"primary": "#E91E63", "secondary": "#F8BBD9", "accent": "#880E4F"}')
       ON CONFLICT (key) DO NOTHING;
     `);
     console.log("✅ Default config values inserted");

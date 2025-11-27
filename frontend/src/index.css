@@ -4,14 +4,14 @@
 
 /* CSS Variables for Dynamic Theming */
 :root {
-  --color-primary: #C41E3A;
-  --color-primary-light: #e85a45;
-  --color-primary-dark: #9a1830;
-  --color-secondary: #D4AF37;
-  --color-secondary-light: #e8c75f;
-  --color-secondary-dark: #b8952e;
-  --color-accent: #2D2D2D;
-  --color-background: #FFFEF7;
+  --color-primary: #E91E63;
+  --color-primary-light: #F06292;
+  --color-primary-dark: #C2185B;
+  --color-secondary: #F8BBD9;
+  --color-secondary-light: #FCE4EC;
+  --color-secondary-dark: #F48FB1;
+  --color-accent: #880E4F;
+  --color-background: #FDF2F8;
 }
 
 /* Custom Base Styles */
