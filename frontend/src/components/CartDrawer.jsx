@@ -32,20 +32,20 @@ export default function CartDrawer({ isOpen, onClose }) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-rice-50 shadow-oriental-lg z-50 flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-rice-50 shadow-lg z-50 flex flex-col"
           >
             {/* Decorative top bar */}
-            <div className="h-1 bg-gradient-to-r from-vermillion-600 via-gold-400 to-vermillion-600" />
+            <div className="h-1 gradient-theme-bar" />
             
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-rice-300">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-vermillion-600 flex items-center justify-center">
-                  <ShoppingBag className="w-5 h-5 text-rice-50" />
+                <div className="w-10 h-10 bg-theme-primary flex items-center justify-center">
+                  <ShoppingBag className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <h2 className="font-serif text-2xl text-ink-800">Your Cart</h2>
-                  <span className="text-sm text-gold-600">{items.length} items</span>
+                  <span className="text-sm text-theme-primary">{items.length} items</span>
                 </div>
               </div>
               <button
@@ -89,7 +89,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, x: 100 }}
-                        className="bg-white p-4 shadow-ink border border-rice-200"
+                        className="bg-white p-4 shadow-sm border border-rice-200"
                       >
                         <div className="flex gap-4">
                           {/* Image */}
@@ -106,7 +106,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                             <h3 className="font-serif text-lg text-ink-800 mb-1">
                               {item.name}
                             </h3>
-                            <p className="text-vermillion-600 font-medium">
+                            <p className="text-theme-primary font-medium">
                               {formatPrice(item.price)}
                             </p>
                           </div>
@@ -138,7 +138,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                             </span>
                             <button
                               onClick={() => removeItem(item.id)}
-                              className="text-ink-400 hover:text-vermillion-600 transition-colors"
+                              className="text-ink-400 hover:text-theme-primary transition-colors"
                             >
                               <X className="w-5 h-5" />
                             </button>

@@ -54,14 +54,14 @@ export default function About() {
   return (
     <div className="min-h-screen bg-rice-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-oriental overflow-hidden">
-        <div className="absolute inset-0 bg-oriental-pattern opacity-30" />
+      <section className="relative py-20 bg-theme-background overflow-hidden">
+        <div className="absolute inset-0 bg-theme-pattern opacity-30" />
 
         {/* Decorative elements */}
-        <div className="absolute top-10 right-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
+        <div className="absolute top-10 right-10 text-8xl text-theme-secondary\/10 font-serif hidden lg:block">
           ✦
         </div>
-        <div className="absolute bottom-10 left-10 text-6xl text-vermillion-500/10 font-serif hidden lg:block">
+        <div className="absolute bottom-10 left-10 text-6xl text-theme-primary\/10 font-serif hidden lg:block">
           ✦
         </div>
 
@@ -71,7 +71,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <span className="text-gold-500 font-serif tracking-wider">
+              <span className="text-theme-secondary-dark font-serif tracking-wider">
                 Our Story
               </span>
               <h1 className="section-title mt-2">
@@ -92,9 +92,9 @@ export default function About() {
               className="relative"
             >
               {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-gold-400/50 hidden md:block" />
+              <div className="absolute -inset-4 border border-theme-secondary\/50 hidden md:block" />
 
-              <div className="overflow-hidden shadow-oriental-lg">
+              <div className="overflow-hidden shadow-lg">
                 <img
                   src={getContent(
                     "about_hero_image",
@@ -108,7 +108,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px gradient-theme-border" />
       </section>
 
       {/* Story Section */}
@@ -121,7 +121,7 @@ export default function About() {
               viewport={{ once: true }}
             >
               <div className="text-center mb-12">
-                <span className="text-gold-500 font-serif tracking-wider">
+                <span className="text-theme-secondary-dark font-serif tracking-wider">
                   The Beginning
                 </span>
                 <h2 className="font-serif text-3xl text-ink-800 mt-2">
@@ -151,7 +151,7 @@ export default function About() {
                   )}
                 </p>
 
-                <p className="border-l-4 border-vermillion-600 pl-6 italic text-ink-700">
+                <p className="border-l-4 border-theme-primary pl-6 italic text-ink-700">
                   {getContent(
                     "about_story_quote",
                     "Thank you for being part of our story. Every order you place supports a small business built on passion, patience, and the simple belief that good food brings people together."
@@ -165,7 +165,7 @@ export default function About() {
 
       {/* Values Section */}
       <section className="py-20 bg-rice-50 relative">
-        <div className="absolute inset-0 bg-oriental-pattern opacity-20" />
+        <div className="absolute inset-0 bg-theme-pattern opacity-20" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
@@ -174,7 +174,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold-500 font-serif tracking-wider">
+            <span className="text-theme-secondary-dark font-serif tracking-wider">
               What We Believe
             </span>
             <h2 className="section-title mt-2">Our Values</h2>
@@ -191,10 +191,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 bg-white border border-rice-200 hover:border-gold-400 hover:shadow-oriental transition-all duration-300"
+                className="text-center p-6 bg-white border border-rice-200 hover:border-theme-secondary hover:shadow-lg transition-all duration-300"
               >
                 <div className="relative inline-block mb-4">
-                  <div className="w-16 h-16 bg-vermillion-600 flex items-center justify-center text-rice-50">
+                  <div className="w-16 h-16 bg-theme-primary flex items-center justify-center text-white">
                     {value.icon}
                   </div>
                 </div>
@@ -210,25 +210,12 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="py-20 bg-ink-800 text-rice-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #D4AF37 0px,
-              #D4AF37 1px,
-              transparent 1px,
-              transparent 20px
-            )`,
-            }}
-          />
-        </div>
+        <div className="absolute inset-0 bg-theme-pattern opacity-5" />
 
-        <div className="absolute top-10 left-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
+        <div className="absolute top-10 left-10 text-8xl text-theme-secondary\/10 font-serif hidden lg:block">
           ✦
         </div>
-        <div className="absolute bottom-10 right-10 text-8xl text-vermillion-500/10 font-serif hidden lg:block">
+        <div className="absolute bottom-10 right-10 text-8xl text-theme-primary\/10 font-serif hidden lg:block">
           ✦
         </div>
 
@@ -239,7 +226,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold-400 font-serif tracking-widest">
+            <span className="text-theme-secondary font-serif tracking-widest">
               Welcome
             </span>
             <h2 className="font-serif text-3xl md:text-4xl mb-6 mt-2">

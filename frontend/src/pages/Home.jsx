@@ -33,13 +33,13 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-oriental">
-        {/* Oriental Pattern Overlay */}
-        <div className="absolute inset-0 bg-oriental-pattern opacity-50" />
+      <section className="relative min-h-[90vh] flex items-center bg-theme-background">
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 bg-theme-pattern opacity-50" />
 
         {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 border border-gold-400/30 rotate-45 hidden lg:block" />
-        <div className="absolute bottom-10 right-10 w-24 h-24 border border-vermillion-600/30 rotate-12 hidden lg:block" />
+        <div className="absolute top-10 left-10 w-32 h-32 border border-theme-secondary\/30 rotate-45 hidden lg:block" />
+        <div className="absolute bottom-10 right-10 w-24 h-24 border border-theme-primary\/30 rotate-12 hidden lg:block" />
 
         {/* Cloud decoration */}
         <motion.div
@@ -61,12 +61,12 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 bg-vermillion-600/10 border border-vermillion-600/30 mb-6"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-theme-primary\/10 border border-theme-primary\/30 mb-6"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
               >
-                <span className="text-vermillion-600 font-medium tracking-wide">
+                <span className="text-theme-primary font-medium tracking-wide">
                   Fresh Daily
                 </span>
                 <span className="text-ink-600">
@@ -110,10 +110,10 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-gold-400/50 hidden md:block" />
-              <div className="absolute -inset-8 border border-vermillion-600/30 hidden md:block" />
+              <div className="absolute -inset-4 border border-theme-secondary\/50 hidden md:block" />
+              <div className="absolute -inset-8 border border-theme-primary\/30 hidden md:block" />
 
-              <div className="relative z-10 overflow-hidden shadow-oriental-lg">
+              <div className="relative z-10 overflow-hidden shadow-lg">
                 <img
                   src={getContent(
                     "home_hero_image",
@@ -132,14 +132,14 @@ export default function Home() {
 
               {/* Floating Card */}
               <motion.div
-                className="absolute -bottom-6 -left-6 bg-white p-4 shadow-oriental-lg z-20 hidden sm:block border-l-4 border-vermillion-600"
+                className="absolute -bottom-6 -left-6 bg-white p-4 shadow-lg z-20 hidden sm:block border-l-4 border-theme-primary"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gold-100 flex items-center justify-center">
-                    <Star className="w-6 h-6 text-gold-500 fill-gold-500" />
+                  <div className="w-12 h-12 bg-theme-secondary-light flex items-center justify-center">
+                    <Star className="w-6 h-6 text-theme-primary fill-theme-primary" />
                   </div>
                   <div>
                     <p className="text-sm text-ink-500 tracking-wide">
@@ -159,7 +159,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-20 bg-white relative">
         {/* Decorative top border */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px gradient-theme-border" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -191,11 +191,11 @@ export default function Home() {
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="text-center p-8 bg-rice-50 border border-rice-200 hover:border-gold-400 hover:shadow-oriental transition-all duration-300"
+                className="text-center p-8 bg-rice-50 border border-rice-200 hover:border-theme-secondary hover:shadow-lg transition-all duration-300"
                 whileHover={{ y: -5 }}
               >
                 <div className="relative inline-block mb-4">
-                  <div className="w-16 h-16 bg-vermillion-600 flex items-center justify-center text-rice-50">
+                  <div className="w-16 h-16 bg-theme-primary flex items-center justify-center text-white">
                     {feature.icon}
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function Home() {
 
       {/* Featured Products */}
       <section className="py-20 bg-rice-50 relative">
-        <div className="absolute inset-0 bg-oriental-pattern opacity-30" />
+        <div className="absolute inset-0 bg-theme-pattern opacity-30" />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
@@ -220,7 +220,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold-500 font-serif text-lg tracking-wider">
+            <span className="text-theme-secondary-dark font-serif text-lg tracking-wider">
               Featured
             </span>
             <h2 className="section-title mt-2">Our Specialties</h2>
@@ -264,26 +264,13 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-ink-800 text-rice-50 relative overflow-hidden">
         {/* Pattern background */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(
-              45deg,
-              #D4AF37 0px,
-              #D4AF37 1px,
-              transparent 1px,
-              transparent 20px
-            )`,
-            }}
-          />
-        </div>
+        <div className="absolute inset-0 bg-theme-pattern opacity-5" />
 
         {/* Decorative elements */}
-        <div className="absolute top-10 left-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
+        <div className="absolute top-10 left-10 text-8xl text-theme-secondary\/10 font-serif hidden lg:block">
           ✦
         </div>
-        <div className="absolute bottom-10 right-10 text-8xl text-vermillion-500/10 font-serif hidden lg:block">
+        <div className="absolute bottom-10 right-10 text-8xl text-theme-primary\/10 font-serif hidden lg:block">
           ✦
         </div>
 
@@ -294,7 +281,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold-400 font-serif tracking-widest">
+            <span className="text-theme-secondary font-serif tracking-widest">
               Taste the Tradition
             </span>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 mt-2">

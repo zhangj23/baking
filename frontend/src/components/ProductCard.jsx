@@ -20,7 +20,7 @@ export default function ProductCard({ product, index = 0 }) {
       transition={{ delay: index * 0.1 }}
     >
       <Link to={`/shop/${product.id}`} className="block group">
-        <div className="bg-white border border-rice-200 overflow-hidden hover:border-gold-400 hover:shadow-oriental-lg transition-all duration-300">
+        <div className="bg-white border border-rice-200 overflow-hidden hover:border-theme-secondary hover:shadow-lg transition-all duration-300">
           {/* Image Container */}
           <div className="relative h-64 overflow-hidden">
             <img
@@ -34,7 +34,7 @@ export default function ProductCard({ product, index = 0 }) {
               <motion.span
                 initial={{ scale: 0 }}
                 whileHover={{ scale: 1.1 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-rice-50 text-ink-800 font-medium border border-gold-400"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-rice-50 text-ink-800 font-medium border border-theme-secondary"
               >
                 <Eye className="w-4 h-4" />
                 View Details
@@ -43,18 +43,18 @@ export default function ProductCard({ product, index = 0 }) {
 
             {/* Category Badge */}
             {product.category && (
-              <span className="absolute top-4 left-4 px-3 py-1 bg-vermillion-600 text-rice-50 text-sm font-medium">
+              <span className="absolute top-4 left-4 px-3 py-1 bg-theme-primary text-white text-sm font-medium">
                 {product.category}
               </span>
             )}
             
             {/* Decorative corner */}
-            <div className="absolute bottom-0 right-0 w-12 h-12 bg-gold-400/20 transform rotate-45 translate-x-6 translate-y-6" />
+            <div className="absolute bottom-0 right-0 w-12 h-12 bg-theme-secondary\/20 transform rotate-45 translate-x-6 translate-y-6" />
           </div>
 
           {/* Content */}
           <div className="p-6 border-t border-rice-200">
-            <h3 className="font-serif text-xl text-ink-800 mb-2 group-hover:text-vermillion-600 transition-colors">
+            <h3 className="font-serif text-xl text-ink-800 mb-2 group-hover:text-theme-primary transition-colors">
               {product.name}
             </h3>
             
@@ -65,13 +65,13 @@ export default function ProductCard({ product, index = 0 }) {
             )}
 
             <div className="flex items-center justify-between">
-              <span className="font-serif text-2xl text-vermillion-600">
+              <span className="font-serif text-2xl text-theme-primary">
                 {formatPrice(product.price)}
               </span>
               
               <motion.button
                 onClick={handleAddToCart}
-                className="p-3 bg-ink-800 hover:bg-vermillion-600 text-rice-50 transition-colors"
+                className="p-3 bg-ink-800 hover:bg-theme-primary text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >

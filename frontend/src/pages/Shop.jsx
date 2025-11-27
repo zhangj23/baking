@@ -38,15 +38,15 @@ export default function Shop() {
   return (
     <div className="min-h-screen bg-rice-50">
       {/* Header */}
-      <section className="relative py-16 bg-gradient-oriental">
-        <div className="absolute inset-0 bg-oriental-pattern opacity-30" />
+      <section className="relative py-16 bg-theme-background">
+        <div className="absolute inset-0 bg-theme-pattern opacity-30" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             className="max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-gold-500 font-serif tracking-wider">Our Selection</span>
+            <span className="text-theme-secondary-dark font-serif tracking-wider">Our Selection</span>
             <h1 className="section-title mt-2">Baked Goods</h1>
             <p className="section-subtitle">
               From our ovens to your table. Each item is crafted with tradition and the finest ingredients.
@@ -54,7 +54,7 @@ export default function Shop() {
           </motion.div>
         </div>
         {/* Decorative border */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px gradient-theme-border" />
       </section>
 
       {/* Filters */}
@@ -90,8 +90,8 @@ export default function Shop() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors border ${
                     selectedCategory === category
-                      ? 'bg-vermillion-600 text-rice-50 border-vermillion-600'
-                      : 'bg-white text-ink-600 border-rice-300 hover:border-gold-400'
+                      ? 'bg-theme-primary text-white border-theme-primary'
+                      : 'bg-white text-ink-600 border-rice-300 hover:border-theme-secondary'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

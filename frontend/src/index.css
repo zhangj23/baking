@@ -30,6 +30,76 @@
   }
 }
 
+/* Dynamic Color Utility Classes */
+.bg-theme-primary { background-color: var(--color-primary); }
+.bg-theme-primary-light { background-color: var(--color-primary-light); }
+.bg-theme-primary-dark { background-color: var(--color-primary-dark); }
+.bg-theme-secondary { background-color: var(--color-secondary); }
+.bg-theme-secondary-light { background-color: var(--color-secondary-light); }
+.bg-theme-secondary-dark { background-color: var(--color-secondary-dark); }
+.bg-theme-accent { background-color: var(--color-accent); }
+.bg-theme-background { background-color: var(--color-background); }
+
+.text-theme-primary { color: var(--color-primary); }
+.text-theme-primary-light { color: var(--color-primary-light); }
+.text-theme-primary-dark { color: var(--color-primary-dark); }
+.text-theme-secondary { color: var(--color-secondary); }
+.text-theme-secondary-light { color: var(--color-secondary-light); }
+.text-theme-secondary-dark { color: var(--color-secondary-dark); }
+.text-theme-accent { color: var(--color-accent); }
+
+.border-theme-primary { border-color: var(--color-primary); }
+.border-theme-primary-light { border-color: var(--color-primary-light); }
+.border-theme-primary-dark { border-color: var(--color-primary-dark); }
+.border-theme-secondary { border-color: var(--color-secondary); }
+.border-theme-secondary-light { border-color: var(--color-secondary-light); }
+.border-theme-secondary-dark { border-color: var(--color-secondary-dark); }
+.border-theme-accent { border-color: var(--color-accent); }
+
+.ring-theme-primary { --tw-ring-color: var(--color-primary); }
+.fill-theme-primary { fill: var(--color-primary); }
+
+/* Gradient utilities */
+.gradient-theme-bar {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-primary));
+}
+
+.gradient-theme-text {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-theme-border {
+  background: linear-gradient(to right, transparent, var(--color-secondary), transparent);
+}
+
+/* Hover states */
+.hover\:bg-theme-primary:hover { background-color: var(--color-primary); }
+.hover\:bg-theme-primary-dark:hover { background-color: var(--color-primary-dark); }
+.hover\:bg-theme-secondary:hover { background-color: var(--color-secondary); }
+.hover\:text-theme-primary:hover { color: var(--color-primary); }
+.hover\:text-theme-primary-light:hover { color: var(--color-primary-light); }
+.hover\:border-theme-primary:hover { border-color: var(--color-primary); }
+.hover\:border-theme-secondary:hover { border-color: var(--color-secondary); }
+
+/* Focus states */
+.focus\:border-theme-primary:focus { border-color: var(--color-primary); }
+.focus\:ring-theme-primary:focus { --tw-ring-color: var(--color-primary); }
+
+/* Opacity variants */
+.bg-theme-primary\/10 { background-color: color-mix(in srgb, var(--color-primary) 10%, transparent); }
+.bg-theme-primary\/20 { background-color: color-mix(in srgb, var(--color-primary) 20%, transparent); }
+.bg-theme-primary\/30 { background-color: color-mix(in srgb, var(--color-primary) 30%, transparent); }
+.bg-theme-secondary\/10 { background-color: color-mix(in srgb, var(--color-secondary) 10%, transparent); }
+.bg-theme-secondary\/20 { background-color: color-mix(in srgb, var(--color-secondary) 20%, transparent); }
+.text-theme-primary\/20 { color: color-mix(in srgb, var(--color-primary) 20%, transparent); }
+.text-theme-secondary\/20 { color: color-mix(in srgb, var(--color-secondary) 20%, transparent); }
+.border-theme-primary\/30 { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent); }
+.border-theme-secondary\/30 { border-color: color-mix(in srgb, var(--color-secondary) 30%, transparent); }
+.border-theme-secondary\/50 { border-color: color-mix(in srgb, var(--color-secondary) 50%, transparent); }
+
 /* Custom Component Classes */
 @layer components {
   .btn-primary {
@@ -67,14 +137,25 @@
   
   .btn-outline {
     @apply inline-flex items-center justify-center px-8 py-3 
-           border-2 border-ink-800 text-ink-800 font-medium
-           hover:bg-ink-800 hover:text-rice-50 transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-ink-400 focus:ring-offset-2;
+           border-2 text-ink-800 font-medium
+           transition-all duration-300
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border-color: var(--color-accent);
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-accent);
+    color: white;
   }
   
   .card {
-    @apply bg-white border border-rice-300 shadow-ink overflow-hidden
-           hover:shadow-oriental-lg transition-all duration-300;
+    @apply bg-white border border-rice-300 overflow-hidden
+           transition-all duration-300;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   }
   
   .section-title {
@@ -88,34 +169,54 @@
   .input-field {
     @apply w-full px-4 py-3 border border-rice-400
            bg-white text-ink-800 placeholder-ink-400
-           focus:border-vermillion-600 focus:outline-none focus:ring-1 focus:ring-vermillion-600
            transition-colors duration-200;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
   }
   
   .label {
     @apply block text-sm font-medium text-ink-700 mb-2 tracking-wide uppercase;
   }
 
-  /* Oriental Decorative Frame */
-  .oriental-frame {
+  /* Decorative Frame */
+  .theme-frame {
     @apply relative;
   }
   
-  .oriental-frame::before {
+  .theme-frame::before {
     content: '';
-    @apply absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-vermillion-600;
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 32px;
+    height: 32px;
+    border-top: 2px solid var(--color-primary);
+    border-left: 2px solid var(--color-primary);
   }
   
-  .oriental-frame::after {
+  .theme-frame::after {
     content: '';
-    @apply absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-vermillion-600;
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 32px;
+    height: 32px;
+    border-bottom: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
   }
 }
 
 /* Custom Utilities */
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-vermillion-600 to-gold-500;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   .animate-stagger > * {
@@ -131,33 +232,27 @@
   .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; }
 }
 
-/* Oriental Patterns */
-.bg-oriental-border {
-  background-image: 
-    linear-gradient(90deg, #C41E3A 2px, transparent 2px),
-    linear-gradient(0deg, #C41E3A 2px, transparent 2px);
-  background-size: 20px 20px;
-  background-position: center;
-}
-
-/* Chinese Cloud Pattern */
-.cloud-decoration {
-  background-image: url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 40c0-11 9-20 20-20s20 9 20 20c0 1.5-.2 3-.5 4.4C66.5 45.8 72 52 72 60H8c0-8 5.5-14.2 12.5-15.6-.3-1.4-.5-2.9-.5-4.4z' fill='%23C41E3A' fill-opacity='0.05'/%3E%3C/svg%3E");
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Decorative Divider */
-.oriental-divider {
+.theme-divider {
   @apply relative flex items-center justify-center py-4;
 }
 
-.oriental-divider::before,
-.oriental-divider::after {
+.theme-divider::before,
+.theme-divider::after {
   content: '';
-  @apply flex-1 h-px bg-gradient-to-r from-transparent via-gold-400 to-transparent;
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-secondary), transparent);
 }
 
-.oriental-divider span {
-  @apply px-4 text-vermillion-600;
+.theme-divider span {
+  padding: 0 1rem;
+  color: var(--color-primary);
 }
 
 /* Stripe Elements styling */
@@ -167,14 +262,14 @@
 }
 
 .StripeElement--focus {
-  @apply border-vermillion-600;
+  border-color: var(--color-primary);
 }
 
 .StripeElement--invalid {
   @apply border-red-400;
 }
 
-/* Scrollbar styling - Oriental */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -184,14 +279,22 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-vermillion-400;
+  background-color: var(--color-primary-light);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-vermillion-600;
+  background-color: var(--color-primary);
 }
 
 /* Selection color */
 ::selection {
-  @apply bg-vermillion-600 text-white;
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Background patterns using CSS */
+.bg-theme-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, color-mix(in srgb, var(--color-secondary) 5%, transparent) 0%, transparent 50%);
 }

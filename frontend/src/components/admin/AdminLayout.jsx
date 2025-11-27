@@ -19,19 +19,19 @@ function SidebarContent({ navItems, onNavClick, onLogout }) {
   return (
     <>
       {/* Decorative top bar */}
-      <div className="h-1 bg-gradient-to-r from-vermillion-600 via-gold-400 to-vermillion-600" />
+      <div className="h-1 gradient-theme-bar" />
 
       {/* Logo */}
       <div className="p-6 border-b border-ink-700">
         <Link to="/admin" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-vermillion-600 rounded-full flex items-center justify-center border-2 border-gold-400">
-            <span className="text-rice-50 font-serif font-bold">M</span>
+          <div className="w-10 h-10 bg-theme-primary rounded-full flex items-center justify-center border-2 border-theme-secondary">
+            <span className="text-white font-serif font-bold">M</span>
           </div>
           <div>
             <h1 className="font-serif text-xl font-semibold text-rice-50">
               MLJJ Cooking
             </h1>
-            <p className="text-xs text-gold-400">Admin Portal</p>
+            <p className="text-xs text-theme-secondary">Admin Portal</p>
           </div>
         </Link>
       </div>
@@ -47,7 +47,7 @@ function SidebarContent({ navItems, onNavClick, onLogout }) {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 transition-colors ${
                 isActive
-                  ? "bg-vermillion-600 text-rice-50 border-l-4 border-gold-400"
+                  ? "bg-theme-primary text-white border-l-4 border-theme-secondary"
                   : "text-rice-300 hover:bg-ink-700 hover:text-rice-50 border-l-4 border-transparent"
               }`
             }
@@ -71,7 +71,7 @@ function SidebarContent({ navItems, onNavClick, onLogout }) {
         </a>
         <button
           onClick={onLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 text-rice-300 hover:bg-vermillion-700 hover:text-rice-50 transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-3 text-rice-300 hover:bg-theme-primary-dark hover:text-white transition-colors"
         >
           <LogOut className="w-5 h-5" />
           Logout
@@ -129,8 +129,8 @@ export default function AdminLayout() {
       {/* Mobile Header */}
       <header className="lg:hidden bg-ink-800 text-rice-50 p-4 flex items-center justify-between">
         <Link to="/admin" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-vermillion-600 rounded-full flex items-center justify-center border border-gold-400">
-            <span className="text-rice-50 font-serif font-bold text-sm">M</span>
+          <div className="w-8 h-8 bg-theme-primary rounded-full flex items-center justify-center border border-theme-secondary">
+            <span className="text-white font-serif font-bold text-sm">M</span>
           </div>
           <span className="font-serif text-xl">MLJJ Cooking Admin</span>
         </Link>
