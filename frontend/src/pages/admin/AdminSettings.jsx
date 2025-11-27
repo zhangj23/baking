@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Save, Eye, EyeOff, Lock, Globe } from 'lucide-react'
+import { Save, Eye, EyeOff, Lock, Globe, Palette, Check } from 'lucide-react'
 import { api } from '../../utils/api'
 import { useConfig } from '../../context/ConfigContext'
+import { useTheme, colorSchemes } from '../../context/ThemeContext'
 
 export default function AdminSettings() {
   const { config, refreshConfig } = useConfig()
+  const { colorScheme, customColors, updateTheme } = useTheme()
   const [settings, setSettings] = useState({
     blogVisible: true
   })
@@ -14,9 +16,17 @@ export default function AdminSettings() {
     newPassword: '',
     confirmPassword: ''
   })
+  const [selectedScheme, setSelectedScheme] = useState(colorScheme)
+  const [localCustomColors, setLocalCustomColors] = useState(customColors)
   const [saving, setSaving] = useState(false)
+  const [savingTheme, setSavingTheme] = useState(false)
   const [changingPassword, setChangingPassword] = useState(false)
   const [message, setMessage] = useState({ type: '', text: '' })
+
+  useEffect(() => {
+    setSelectedScheme(colorScheme)
+    setLocalCustomColors(customColors)
+  }, [colorScheme, customColors])
 
   useEffect(() => {
     if (config.BLOG_VISIBLE !== undefined) {
@@ -144,6 +154,192 @@ export default function AdminSettings() {
             </button>
           </div>
         </div>
+      </motion.div>
+
+      {/* Color Scheme Settings */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
+        className="bg-white rounded-lg p-6 shadow-sm mb-6 border border-rice-200"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+            <Palette className="w-5 h-5 text-purple-600" />
+          </div>
+          <h2 className="text-xl font-serif text-ink-800">Color Scheme</h2>
+        </div>
+
+        {/* Predefined Schemes */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-6">
+          {Object.entries(colorSchemes).filter(([key]) => key !== 'custom').map(([key, scheme]) => (
+            <button
+              key={key}
+              onClick={() => setSelectedScheme(key)}
+              className={`relative p-3 rounded-lg border-2 transition-all ${
+                selectedScheme === key 
+                  ? 'border-vermillion-500 bg-rice-50' 
+                  : 'border-rice-200 hover:border-rice-300'
+              }`}
+            >
+              <div className="flex gap-1 mb-2">
+                <div className="w-6 h-6 rounded-full" style={{ backgroundColor: scheme.primary }} />
+                <div className="w-6 h-6 rounded-full" style={{ backgroundColor: scheme.secondary }} />
+                <div className="w-6 h-6 rounded-full" style={{ backgroundColor: scheme.accent }} />
+              </div>
+              <p className="text-sm font-medium text-ink-700">{scheme.name}</p>
+              {selectedScheme === key && (
+                <div className="absolute top-2 right-2">
+                  <Check className="w-4 h-4 text-vermillion-500" />
+                </div>
+              )}
+            </button>
+          ))}
+          
+          {/* Custom Option */}
+          <button
+            onClick={() => setSelectedScheme('custom')}
+            className={`relative p-3 rounded-lg border-2 transition-all ${
+              selectedScheme === 'custom' 
+                ? 'border-vermillion-500 bg-rice-50' 
+                : 'border-rice-200 hover:border-rice-300'
+            }`}
+          >
+            <div className="flex gap-1 mb-2">
+              <div className="w-6 h-6 rounded-full border-2 border-dashed border-ink-300" style={{ backgroundColor: localCustomColors.primary }} />
+              <div className="w-6 h-6 rounded-full border-2 border-dashed border-ink-300" style={{ backgroundColor: localCustomColors.secondary }} />
+              <div className="w-6 h-6 rounded-full border-2 border-dashed border-ink-300" style={{ backgroundColor: localCustomColors.accent }} />
+            </div>
+            <p className="text-sm font-medium text-ink-700">Custom</p>
+            {selectedScheme === 'custom' && (
+              <div className="absolute top-2 right-2">
+                <Check className="w-4 h-4 text-vermillion-500" />
+              </div>
+            )}
+          </button>
+        </div>
+
+        {/* Custom Color Pickers */}
+        {selectedScheme === 'custom' && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="p-4 bg-rice-50 rounded-lg border border-rice-200 mb-6"
+          >
+            <p className="text-sm font-medium text-ink-700 mb-4">Custom Colors</p>
+            <div className="grid grid-cols-3 gap-4">
+              <div>
+                <label className="text-xs text-ink-500 mb-1 block">Primary</label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="color"
+                    value={localCustomColors.primary}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, primary: e.target.value }))}
+                    className="w-10 h-10 rounded cursor-pointer"
+                  />
+                  <input
+                    type="text"
+                    value={localCustomColors.primary}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, primary: e.target.value }))}
+                    className="input-field text-xs flex-1"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-xs text-ink-500 mb-1 block">Secondary</label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="color"
+                    value={localCustomColors.secondary}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, secondary: e.target.value }))}
+                    className="w-10 h-10 rounded cursor-pointer"
+                  />
+                  <input
+                    type="text"
+                    value={localCustomColors.secondary}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, secondary: e.target.value }))}
+                    className="input-field text-xs flex-1"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="text-xs text-ink-500 mb-1 block">Accent</label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="color"
+                    value={localCustomColors.accent}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, accent: e.target.value }))}
+                    className="w-10 h-10 rounded cursor-pointer"
+                  />
+                  <input
+                    type="text"
+                    value={localCustomColors.accent}
+                    onChange={(e) => setLocalCustomColors(prev => ({ ...prev, accent: e.target.value }))}
+                    className="input-field text-xs flex-1"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Preview */}
+        <div className="p-4 rounded-lg border border-rice-200 mb-6" style={{ 
+          backgroundColor: selectedScheme === 'custom' ? localCustomColors.background || '#FFFEF7' : colorSchemes[selectedScheme]?.background 
+        }}>
+          <p className="text-sm text-ink-500 mb-3">Preview</p>
+          <div className="flex items-center gap-3">
+            <button 
+              className="px-4 py-2 rounded text-white text-sm font-medium"
+              style={{ backgroundColor: selectedScheme === 'custom' ? localCustomColors.primary : colorSchemes[selectedScheme]?.primary }}
+            >
+              Primary Button
+            </button>
+            <button 
+              className="px-4 py-2 rounded text-white text-sm font-medium"
+              style={{ backgroundColor: selectedScheme === 'custom' ? localCustomColors.secondary : colorSchemes[selectedScheme]?.secondary }}
+            >
+              Secondary
+            </button>
+            <span 
+              className="text-sm font-medium"
+              style={{ color: selectedScheme === 'custom' ? localCustomColors.accent : colorSchemes[selectedScheme]?.accent }}
+            >
+              Accent Text
+            </span>
+          </div>
+        </div>
+
+        {/* Save Button */}
+        <button
+          onClick={async () => {
+            setSavingTheme(true)
+            try {
+              await api.put('/config/COLOR_SCHEME', { value: selectedScheme })
+              if (selectedScheme === 'custom') {
+                await api.put('/config/CUSTOM_COLORS', { value: localCustomColors })
+              }
+              updateTheme(selectedScheme, selectedScheme === 'custom' ? localCustomColors : null)
+              setMessage({ type: 'success', text: 'Color scheme updated!' })
+            } catch (error) {
+              setMessage({ type: 'error', text: 'Failed to save color scheme.' })
+            } finally {
+              setSavingTheme(false)
+              setTimeout(() => setMessage({ type: '', text: '' }), 3000)
+            }
+          }}
+          disabled={savingTheme}
+          className="btn-primary w-full flex items-center justify-center gap-2"
+        >
+          {savingTheme ? (
+            <div className="w-5 h-5 border-2 border-rice-50 border-t-transparent rounded-full animate-spin" />
+          ) : (
+            <>
+              <Palette className="w-5 h-5" />
+              Save Color Scheme
+            </>
+          )}
+        </button>
       </motion.div>
 
       {/* Security Settings */}

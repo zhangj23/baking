@@ -2,14 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Base Styles - Oriental Theme */
+/* CSS Variables for Dynamic Theming */
+:root {
+  --color-primary: #C41E3A;
+  --color-primary-light: #e85a45;
+  --color-primary-dark: #9a1830;
+  --color-secondary: #D4AF37;
+  --color-secondary-light: #e8c75f;
+  --color-secondary-dark: #b8952e;
+  --color-accent: #2D2D2D;
+  --color-background: #FFFEF7;
+}
+
+/* Custom Base Styles */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   
   body {
-    @apply font-sans text-ink-800 bg-rice-50 antialiased;
+    @apply font-sans text-ink-800 antialiased;
+    background-color: var(--color-background);
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -17,24 +30,39 @@
   }
 }
 
-/* Custom Component Classes - Oriental Theme */
+/* Custom Component Classes */
 @layer components {
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3 
-           bg-vermillion-600 text-rice-50 font-medium
-           border border-vermillion-700
-           hover:bg-vermillion-700 transition-all duration-300
-           shadow-oriental hover:shadow-oriental-lg hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-vermillion-400 focus:ring-offset-2;
+           text-white font-medium
+           transition-all duration-300
+           hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
   
   .btn-secondary {
     @apply inline-flex items-center justify-center px-8 py-3 
-           bg-gold-400 text-ink-800 font-medium
-           border border-gold-500
-           hover:bg-gold-500 transition-all duration-300
-           shadow-gold hover:shadow-gold hover:-translate-y-0.5
-           focus:outline-none focus:ring-2 focus:ring-gold-300 focus:ring-offset-2;
+           font-medium
+           transition-all duration-300
+           hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: var(--color-secondary);
+    color: var(--color-accent);
+    border: 1px solid var(--color-secondary-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-secondary-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
   
   .btn-outline {

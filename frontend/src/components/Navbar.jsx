@@ -1,41 +1,44 @@
-import { Link, NavLink } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
-import { Menu, X, ShoppingBag } from 'lucide-react'
-import { useCart } from '../context/CartContext'
-import { useConfig } from '../context/ConfigContext'
+import { Link, NavLink } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { useCart } from "../context/CartContext";
+import { useConfig } from "../context/ConfigContext";
 
 export default function Navbar({ onCartClick }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const { cartCount } = useCart()
-  const { config } = useConfig()
-  const isBlogVisible = config?.BLOG_VISIBLE === true || config?.BLOG_VISIBLE === 'true'
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { cartCount } = useCart();
+  const { config } = useConfig();
+  const isBlogVisible =
+    config?.BLOG_VISIBLE === true || config?.BLOG_VISIBLE === "true";
 
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/shop', label: 'Baked Goods' },
-    ...(isBlogVisible ? [{ to: '/blog', label: 'Journal' }] : []),
-    { to: '/about', label: 'Our Story' },
-    { to: '/contact', label: 'Contact' },
-  ]
+    { to: "/", label: "Home" },
+    { to: "/shop", label: "Baked Goods" },
+    ...(isBlogVisible ? [{ to: "/blog", label: "Journal" }] : []),
+    { to: "/about", label: "Our Story" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 bg-rice-50/95 backdrop-blur-md border-b border-rice-300">
       {/* Top decorative bar */}
       <div className="h-1 bg-gradient-to-r from-vermillion-600 via-gold-400 to-vermillion-600" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <motion.div 
+            <motion.div
               className="relative"
               whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              {/* Decorative circle with Chinese pattern feel */}
+              {/* Decorative circle */}
               <div className="w-12 h-12 bg-vermillion-600 rounded-full flex items-center justify-center border-2 border-gold-400">
-                <span className="text-xl text-rice-50 font-serif font-bold">美</span>
+                <span className="text-xl text-rice-50 font-serif font-bold">
+                  M
+                </span>
               </div>
             </motion.div>
             <div>
@@ -56,7 +59,9 @@ export default function Navbar({ onCartClick }) {
                 to={link.to}
                 className={({ isActive }) =>
                   `relative font-medium tracking-wide transition-colors duration-200 ${
-                    isActive ? 'text-vermillion-600' : 'text-ink-600 hover:text-vermillion-600'
+                    isActive
+                      ? "text-vermillion-600"
+                      : "text-ink-600 hover:text-vermillion-600"
                   }`
                 }
               >
@@ -68,7 +73,11 @@ export default function Navbar({ onCartClick }) {
                         layoutId="navbar-underline"
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-vermillion-600 to-gold-400"
                         initial={false}
-                        transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 30,
+                        }}
                       />
                     )}
                   </>
@@ -105,7 +114,11 @@ export default function Navbar({ onCartClick }) {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-ink-800"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -116,7 +129,7 @@ export default function Navbar({ onCartClick }) {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-rice-50 border-t border-rice-300 overflow-hidden"
           >
@@ -129,8 +142,8 @@ export default function Navbar({ onCartClick }) {
                   className={({ isActive }) =>
                     `py-3 px-4 font-medium transition-colors border-l-2 ${
                       isActive
-                        ? 'border-vermillion-600 bg-rice-100 text-vermillion-600'
-                        : 'border-transparent text-ink-600 hover:border-gold-400 hover:bg-rice-100'
+                        ? "border-vermillion-600 bg-rice-100 text-vermillion-600"
+                        : "border-transparent text-ink-600 hover:border-gold-400 hover:bg-rice-100"
                     }`
                   }
                 >
@@ -142,5 +155,5 @@ export default function Navbar({ onCartClick }) {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }

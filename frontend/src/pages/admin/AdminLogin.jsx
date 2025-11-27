@@ -1,46 +1,46 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Lock, Mail, Eye, EyeOff } from 'lucide-react'
-import { api } from '../../utils/api'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Lock, Mail, Eye, EyeOff } from "lucide-react";
+import { api } from "../../utils/api";
 
 export default function AdminLogin() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  })
-  const [showPassword, setShowPassword] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setError(null)
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
-      const response = await api.post('/auth/login', formData)
-      localStorage.setItem('ml-baking-admin-token', response.token)
-      navigate('/admin')
+      const response = await api.post("/auth/login", formData);
+      localStorage.setItem("ml-baking-admin-token", response.token);
+      navigate("/admin");
     } catch (err) {
-      setError(err.message || 'Invalid credentials')
+      setError(err.message || "Invalid credentials");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-oriental flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-oriental-pattern opacity-30" />
-      
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -52,13 +52,17 @@ export default function AdminLogin() {
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: 'spring' }}
+            transition={{ delay: 0.2, type: "spring" }}
             className="w-16 h-16 bg-vermillion-600 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-gold-400"
           >
-            <span className="text-2xl text-rice-50 font-serif font-bold">美</span>
+            <span className="text-2xl text-rice-50 font-serif font-bold">
+              M
+            </span>
           </motion.div>
-          <h1 className="font-serif text-2xl font-semibold text-rice-50">MLJJ Cooking</h1>
-          <p className="text-gold-400 text-sm tracking-wider">Admin Portal • 管理入口</p>
+          <h1 className="font-serif text-2xl font-semibold text-rice-50">
+            MLJJ Cooking
+          </h1>
+          <p className="text-gold-400 text-sm tracking-wider">Admin Portal</p>
         </div>
 
         {/* Form */}
@@ -106,7 +110,7 @@ export default function AdminLogin() {
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ink-400" />
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   value={formData.password}
@@ -120,7 +124,11 @@ export default function AdminLogin() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -136,7 +144,7 @@ export default function AdminLogin() {
               {loading ? (
                 <div className="w-6 h-6 border-2 border-rice-50 border-t-transparent rounded-full animate-spin" />
               ) : (
-                'Sign In'
+                "Sign In"
               )}
             </motion.button>
           </div>
@@ -150,5 +158,5 @@ export default function AdminLogin() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }

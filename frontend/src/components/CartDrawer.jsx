@@ -45,7 +45,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                 </div>
                 <div>
                   <h2 className="font-serif text-2xl text-ink-800">Your Cart</h2>
-                  <span className="text-sm text-gold-600">购物车</span>
+                  <span className="text-sm text-gold-600">{items.length} items</span>
                 </div>
               </div>
               <button
@@ -161,7 +161,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                   </span>
                 </div>
                 <p className="text-sm text-ink-500 mb-4">
-                  Pickup only • 仅限自取
+                  Pickup only • No shipping
                 </p>
                 <motion.button
                   onClick={handleCheckout}

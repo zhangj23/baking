@@ -46,7 +46,7 @@ export default function Shop() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-gold-500 font-serif tracking-wider">精选烘焙</span>
+            <span className="text-gold-500 font-serif tracking-wider">Our Selection</span>
             <h1 className="section-title mt-2">Baked Goods</h1>
             <p className="section-subtitle">
               From our ovens to your table. Each item is crafted with tradition and the finest ingredients.

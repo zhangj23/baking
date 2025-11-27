@@ -28,28 +28,24 @@ export default function About() {
     {
       icon: <Heart className="w-8 h-8" />,
       title: "Made with Heart",
-      chinese: "用心",
       description:
         "Every item is crafted by hand with attention to detail and passion for baking.",
     },
     {
       icon: <Leaf className="w-8 h-8" />,
       title: "Quality Ingredients",
-      chinese: "精选",
       description:
         "We source premium ingredients including imported Japanese matcha and organic flour.",
     },
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Slow Fermentation",
-      chinese: "慢发",
       description:
         "Our sourdoughs ferment for 24-48 hours for complex flavors and better digestibility.",
     },
     {
       icon: <Award className="w-8 h-8" />,
       title: "Traditional Methods",
-      chinese: "传统",
       description:
         "Classic techniques passed down through generations, adapted for modern tastes.",
     },
@@ -63,10 +59,10 @@ export default function About() {
 
         {/* Decorative elements */}
         <div className="absolute top-10 right-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
-          梦
+          ✦
         </div>
         <div className="absolute bottom-10 left-10 text-6xl text-vermillion-500/10 font-serif hidden lg:block">
-          味
+          ✦
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -76,7 +72,7 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
             >
               <span className="text-gold-500 font-serif tracking-wider">
-                我们的故事
+                Our Story
               </span>
               <h1 className="section-title mt-2">
                 {getContent("about_title", "About MLJJ Cooking")}
@@ -126,7 +122,7 @@ export default function About() {
             >
               <div className="text-center mb-12">
                 <span className="text-gold-500 font-serif tracking-wider">
-                  源起
+                  The Beginning
                 </span>
                 <h2 className="font-serif text-3xl text-ink-800 mt-2">
                   Our Story
@@ -179,7 +175,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <span className="text-gold-500 font-serif tracking-wider">
-              我们的理念
+              What We Believe
             </span>
             <h2 className="section-title mt-2">Our Values</h2>
             <p className="section-subtitle mx-auto">
@@ -201,9 +197,6 @@ export default function About() {
                   <div className="w-16 h-16 bg-vermillion-600 flex items-center justify-center text-rice-50">
                     {value.icon}
                   </div>
-                  <span className="absolute -top-2 -right-2 text-xl text-gold-500 font-serif">
-                    {value.chinese}
-                  </span>
                 </div>
                 <h3 className="font-serif text-xl text-ink-800 mb-2">
                   {value.title}
@@ -233,10 +226,10 @@ export default function About() {
         </div>
 
         <div className="absolute top-10 left-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
-          品
+          ✦
         </div>
         <div className="absolute bottom-10 right-10 text-8xl text-vermillion-500/10 font-serif hidden lg:block">
-          味
+          ✦
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -247,7 +240,7 @@ export default function About() {
             viewport={{ once: true }}
           >
             <span className="text-gold-400 font-serif tracking-widest">
-              欢迎品尝
+              Welcome
             </span>
             <h2 className="font-serif text-3xl md:text-4xl mb-6 mt-2">
               Ready to taste the story?

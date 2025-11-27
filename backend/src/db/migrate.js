@@ -99,6 +99,20 @@ const migrate = async () => {
       VALUES ('BLOG_VISIBLE', 'true')
       ON CONFLICT (key) DO NOTHING;
     `);
+
+    // Insert default color scheme
+    await client.query(`
+      INSERT INTO site_config (key, value) 
+      VALUES ('COLOR_SCHEME', '"default"')
+      ON CONFLICT (key) DO NOTHING;
+    `);
+
+    // Insert custom colors config
+    await client.query(`
+      INSERT INTO site_config (key, value) 
+      VALUES ('CUSTOM_COLORS', '{"primary": "#C41E3A", "secondary": "#D4AF37", "accent": "#2D2D2D"}')
+      ON CONFLICT (key) DO NOTHING;
+    `);
     console.log("✅ Default config values inserted");
 
     // Insert default site content

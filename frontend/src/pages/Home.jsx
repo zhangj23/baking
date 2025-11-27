@@ -67,14 +67,10 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
               >
                 <span className="text-vermillion-600 font-medium tracking-wide">
-                  新鲜出炉
+                  Fresh Daily
                 </span>
                 <span className="text-ink-600">
-                  •{" "}
-                  {getContent(
-                    "home_hero_badge",
-                    "Now accepting pre-orders"
-                  ).replace(/^[^\s]+\s/, "")}
+                  • {getContent("home_hero_badge", "Now accepting pre-orders")}
                 </span>
               </motion.div>
 
@@ -128,9 +124,9 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-800/50 to-transparent" />
 
-                {/* Chinese calligraphy overlay */}
+                {/* Decorative overlay */}
                 <div className="absolute bottom-6 right-6 text-6xl text-rice-50/20 font-serif">
-                  梦
+                  M
                 </div>
               </div>
 
@@ -177,21 +173,18 @@ export default function Home() {
               {
                 icon: <Clock className="w-8 h-8" />,
                 title: "Fresh Every Week",
-                chinese: "新鲜",
                 description:
                   "Made fresh for Saturday pickup. Pre-order by Wednesday midnight.",
               },
               {
                 icon: <Star className="w-8 h-8" />,
                 title: "Premium Ingredients",
-                chinese: "精选",
                 description:
                   "Premium ingredients sourced from around the world for authentic flavors.",
               },
               {
                 icon: <MapPin className="w-8 h-8" />,
                 title: "Easy Pickup",
-                chinese: "方便",
                 description:
                   "Convenient Saturday pickup at our kitchen. No shipping, just freshness.",
               },
@@ -205,9 +198,6 @@ export default function Home() {
                   <div className="w-16 h-16 bg-vermillion-600 flex items-center justify-center text-rice-50">
                     {feature.icon}
                   </div>
-                  <span className="absolute -top-2 -right-2 text-xl text-gold-500">
-                    {feature.chinese}
-                  </span>
                 </div>
                 <h3 className="font-serif text-xl text-ink-800 mb-2">
                   {feature.title}
@@ -231,7 +221,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <span className="text-gold-500 font-serif text-lg tracking-wider">
-              精选烘焙
+              Featured
             </span>
             <h2 className="section-title mt-2">Our Specialties</h2>
             <p className="section-subtitle mx-auto">
@@ -273,7 +263,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-20 bg-ink-800 text-rice-50 relative overflow-hidden">
-        {/* Chinese pattern background */}
+        {/* Pattern background */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
@@ -289,12 +279,12 @@ export default function Home() {
           />
         </div>
 
-        {/* Decorative Chinese characters */}
+        {/* Decorative elements */}
         <div className="absolute top-10 left-10 text-8xl text-gold-400/10 font-serif hidden lg:block">
-          福
+          ✦
         </div>
         <div className="absolute bottom-10 right-10 text-8xl text-vermillion-500/10 font-serif hidden lg:block">
-          禄
+          ✦
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -305,7 +295,7 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <span className="text-gold-400 font-serif tracking-widest">
-              品味传统
+              Taste the Tradition
             </span>
             <h2 className="font-serif text-4xl md:text-5xl mb-6 mt-2">
               {getContent("home_cta_title", "Ready to taste the tradition?")}
