@@ -10,20 +10,25 @@ import { api, formatPrice } from '../utils/api'
 // Initialize Stripe
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY || 'pk_test_placeholder')
 
-// Card Element Styling
-const cardElementOptions = {
-  style: {
-    base: {
-      fontSize: '16px',
-      color: '#5D4037',
-      fontFamily: 'Lato, system-ui, sans-serif',
-      '::placeholder': {
-        color: '#9d7e6c'
+// Card Element Styling - responsive for mobile
+const getCardElementOptions = () => {
+  const isMobile = window.innerWidth < 640
+  return {
+    style: {
+      base: {
+        fontSize: isMobile ? '14px' : '16px',
+        color: '#5D4037',
+        fontFamily: 'Lato, system-ui, sans-serif',
+        lineHeight: '1.5',
+        '::placeholder': {
+          color: '#9d7e6c'
+        }
+      },
+      invalid: {
+        color: '#ef4444'
       }
     },
-    invalid: {
-      color: '#ef4444'
-    }
+    hidePostalCode: true // Remove postal code field to save space
   }
 }
 
@@ -209,7 +214,7 @@ function CheckoutForm() {
             transition={{ delay: 0.1 }}
             className="order-1 lg:order-2"
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-warm">
+            <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-4 sm:p-8 shadow-warm">
               <h2 className="font-serif text-2xl text-walnut-800 mb-6">
                 Payment Details
               </h2>
@@ -255,9 +260,12 @@ function CheckoutForm() {
                 {/* Card Element */}
                 <div>
                   <label className="label">Card Details</label>
-                  <div className="p-4 border-2 border-dusty-rose-200 rounded-xl bg-white focus-within:border-walnut-800 transition-colors">
-                    <CardElement options={cardElementOptions} />
+                  <div className="p-3 sm:p-4 border-2 border-dusty-rose-200 rounded-xl bg-white focus-within:border-walnut-800 transition-colors">
+                    <CardElement options={getCardElementOptions()} />
                   </div>
+                  <p className="text-xs text-walnut-500 mt-2 sm:hidden">
+                    Card number • MM/YY • CVC
+                  </p>
                 </div>
 
                 {/* Error Message */}
