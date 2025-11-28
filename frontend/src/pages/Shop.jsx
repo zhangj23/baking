@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Filter, X } from 'lucide-react'
 import { api } from '../utils/api'
 import ProductCard from '../components/ProductCard'
+import SEO from '../components/SEO'
 
 export default function Shop() {
   const [products, setProducts] = useState([])
@@ -37,6 +38,11 @@ export default function Shop() {
 
   return (
     <div className="min-h-screen bg-rice-50">
+      <SEO 
+        title="Shop"
+        description="Browse our selection of artisan Asian-inspired dishes, baked goods, and desserts. Pre-order for pickup and taste the difference of homemade quality."
+        url="/shop"
+      />
       {/* Header */}
       <section className="relative py-16 bg-theme-background">
         <div className="absolute inset-0 bg-theme-pattern opacity-30" />

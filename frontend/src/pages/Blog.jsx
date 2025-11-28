@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Calendar, ArrowRight } from 'lucide-react'
 import { api } from '../utils/api'
+import SEO from '../components/SEO'
 
 export default function Blog() {
   const [posts, setPosts] = useState([])
@@ -32,6 +33,11 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-cream-50">
+      <SEO 
+        title="Journal"
+        description="Explore recipes, cooking tips, and stories from the MLJJ Cooking kitchen. Learn about Asian cuisine and artisan cooking techniques."
+        url="/blog"
+      />
       {/* Header */}
       <section className="relative py-16 bg-gradient-to-b from-dusty-rose-100 to-cream-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

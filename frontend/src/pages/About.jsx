@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Heart, Leaf, Clock, Award } from "lucide-react";
 import { api } from "../utils/api";
+import SEO from "../components/SEO";
 
 export default function About() {
   const [content, setContent] = useState({});
@@ -53,6 +54,11 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-rice-50">
+      <SEO 
+        title="Our Story"
+        description="Learn about MLJJ Cooking - our passion for artisan Asian-inspired cuisine, traditional cooking methods, and commitment to quality homemade food."
+        url="/about"
+      />
       {/* Hero Section */}
       <section className="relative py-20 bg-theme-background overflow-hidden">
         <div className="absolute inset-0 bg-theme-pattern opacity-30" />

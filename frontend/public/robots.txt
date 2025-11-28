@@ -1,0 +1,11 @@
+# robots.txt for MLJJ Cooking
+User-agent: *
+Allow: /
+
+# Disallow admin pages from indexing
+Disallow: /admin
+Disallow: /admin/*
+
+# Sitemap location
+Sitemap: https://mljjcooking.com/sitemap.xml
+

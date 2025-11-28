@@ -4,6 +4,7 @@ import { ArrowRight, Clock, MapPin, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import { api } from "../utils/api";
 import ProductCard from "../components/ProductCard";
+import SEO from "../components/SEO";
 
 export default function Home() {
   const [featuredProducts, setFeaturedProducts] = useState([]);
@@ -32,6 +33,11 @@ export default function Home() {
 
   return (
     <div className="overflow-hidden">
+      <SEO 
+        title="Home"
+        description="MLJJ Cooking - Artisan Asian-inspired cuisine made with tradition and love. Pre-order our signature homemade dishes, baked goods, and desserts for pickup."
+        url="/"
+      />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center bg-theme-background">
         {/* Pattern Overlay */}

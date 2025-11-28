@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar } from 'lucide-react'
 import { api } from '../utils/api'
+import SEO, { generateArticleSchema } from '../components/SEO'
 
 export default function BlogPost() {
   const { id } = useParams()
@@ -68,6 +69,14 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-cream-50 py-8">
+      <SEO 
+        title={post.title}
+        description={post.excerpt || `Read "${post.title}" on the MLJJ Cooking journal.`}
+        image={post.image_url}
+        url={`/blog/${id}`}
+        type="article"
+        structuredData={generateArticleSchema(post)}
+      />
       <article className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Back Button */}
         <motion.div

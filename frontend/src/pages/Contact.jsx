@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, MapPin, Mail, Instagram, Clock, Check } from 'lucide-react'
+import SEO from '../components/SEO'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-cream-50">
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with MLJJ Cooking. Questions about orders, pickup times, or custom requests? We'd love to hear from you."
+        url="/contact"
+      />
       {/* Header */}
       <section className="relative py-16 bg-gradient-to-b from-dusty-rose-100 to-cream-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

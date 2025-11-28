@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Minus, Plus, ShoppingBag, Check } from 'lucide-react'
 import { api, formatPrice } from '../utils/api'
 import { useCart } from '../context/CartContext'
+import SEO, { generateProductSchema, generateBreadcrumbSchema } from '../components/SEO'
 
 export default function ProductDetail() {
   const { id } = useParams()
@@ -56,6 +57,14 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-cream-50 py-8">
+      <SEO 
+        title={product.name}
+        description={product.description || `Order ${product.name} from MLJJ Cooking - artisan Asian-inspired cuisine.`}
+        image={product.image_url}
+        url={`/shop/${id}`}
+        type="product"
+        structuredData={generateProductSchema(product)}
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <motion.div
