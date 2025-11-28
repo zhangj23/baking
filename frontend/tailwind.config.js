@@ -91,9 +91,10 @@ export default {
         },
       },
       fontFamily: {
-        'serif': ['Cormorant Garamond', 'Noto Serif SC', 'Georgia', 'serif'],
-        'sans': ['Lato', 'Noto Sans SC', 'system-ui', 'sans-serif'],
-        'display': ['Cormorant Garamond', 'serif'],
+        // System fonts load instantly - no network requests
+        'serif': ['Playfair Display', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
+        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'display': ['Playfair Display', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'oriental-pattern': `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.08'%3E%3Cpath d='M30 30c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0 5.5 4.5 10 10 10s10-4.5 10-10-4.5-10-10-10-10 4.5-10 10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
