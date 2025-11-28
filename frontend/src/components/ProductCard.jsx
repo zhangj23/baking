@@ -22,10 +22,12 @@ export default function ProductCard({ product, index = 0 }) {
       <Link to={`/shop/${product.id}`} className="block group">
         <div className="bg-white border border-rice-200 overflow-hidden hover:border-theme-secondary hover:shadow-lg transition-all duration-300">
           {/* Image Container */}
-          <div className="relative h-64 overflow-hidden">
+          <div className="relative h-64 overflow-hidden bg-rice-100">
             <img
               src={product.image_url || 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400'}
               alt={product.name}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             
