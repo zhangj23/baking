@@ -53,8 +53,14 @@
     <!-- DNS Prefetch & Preconnect for performance -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://api.mljjcooking.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    
+    <!-- Preload LCP hero image for faster paint -->
+    <link rel="preload" href="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&h=600&fit=crop" as="image" fetchpriority="high">
     
     <!-- Preload critical fonts (only essential weights) -->
     <link rel="preload" href="https://fonts.gstatic.com/s/cormorantgaramond/v16/co3YmX5slCNuHLi8bLeY9MK7whWMhyjQAllvuQWJ5heb_w.woff2" as="font" type="font/woff2" crossorigin>

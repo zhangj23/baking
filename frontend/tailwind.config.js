@@ -4,6 +4,15 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // Safelist dynamic theme classes that might be purged
+  safelist: [
+    'bg-theme-primary',
+    'bg-theme-secondary',
+    'text-theme-primary',
+    'text-theme-secondary',
+    'border-theme-primary',
+    'border-theme-secondary',
+  ],
   theme: {
     extend: {
       colors: {

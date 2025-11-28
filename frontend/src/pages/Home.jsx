@@ -47,38 +47,27 @@ export default function Home() {
         <div className="absolute top-10 left-10 w-32 h-32 border border-theme-secondary\/30 rotate-45 hidden lg:block" />
         <div className="absolute bottom-10 right-10 w-24 h-24 border border-theme-primary\/30 rotate-12 hidden lg:block" />
 
-        {/* Cloud decoration */}
-        <motion.div
-          className="absolute top-20 right-20 text-6xl opacity-10 hidden lg:block"
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{ duration: 6, repeat: Infinity }}
-        >
+        {/* Cloud decoration - CSS animation for better performance */}
+        <div className="absolute top-20 right-20 text-6xl opacity-10 hidden lg:block animate-float">
           ☁️
-        </motion.div>
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4 }}
             >
-              <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 bg-theme-primary\/10 border border-theme-primary\/30 mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-              >
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-theme-primary\/10 border border-theme-primary\/30 mb-6">
                 <span className="text-theme-primary font-medium tracking-wide">
                   Fresh Daily
                 </span>
                 <span className="text-ink-600">
                   • {getContent("home_hero_badge", "Now accepting pre-orders")}
                 </span>
-              </motion.div>
+              </div>
 
               <h1 className="font-serif text-5xl md:text-7xl text-ink-800 leading-tight mb-6">
                 {getContent("home_hero_title", "Baked with")}
@@ -111,9 +100,9 @@ export default function Home() {
             {/* Hero Image */}
             <motion.div
               className="relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
             >
               {/* Decorative frame */}
               <div className="absolute -inset-4 border border-theme-secondary\/50 hidden md:block" />
@@ -127,6 +116,9 @@ export default function Home() {
                   )}
                   alt="Featured dish"
                   className="w-full h-[500px] object-cover"
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="sync"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-800/50 to-transparent" />
 
